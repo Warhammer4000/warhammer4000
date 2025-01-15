@@ -1,6 +1,7 @@
 import { RetroContainer } from "./RetroContainer";
 import { RetroHeading } from "./RetroHeading";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card";
+import { ArrowRight } from "lucide-react";
 
 interface Experience {
   company: string;
@@ -9,45 +10,83 @@ interface Experience {
   period: string;
   duration: string;
   isCurrent?: boolean;
+  isUnlocked?: boolean;
 }
 
 export const ExperienceTimeline = () => {
   const experiences: Experience[] = [
+    {
+      company: "???",
+      companyUrl: "#",
+      role: "Future Role",
+      period: "???",
+      duration: "???",
+      isUnlocked: false
+    },
+    {
+      company: "???",
+      companyUrl: "#",
+      role: "Future Role",
+      period: "???",
+      duration: "???",
+      isUnlocked: false
+    },
+    {
+      company: "???",
+      companyUrl: "#",
+      role: "Future Role",
+      period: "???",
+      duration: "???",
+      isUnlocked: false
+    },
+    {
+      company: "???",
+      companyUrl: "#",
+      role: "Future Role",
+      period: "???",
+      duration: "???",
+      isUnlocked: false
+    },
     {
       company: "Brain Station 23 PLC",
       companyUrl: "https://brainstation-23.com/",
       role: "Business Unit Head",
       period: "Jan 2021 - Present",
       duration: "4 years 1 month",
-      isCurrent: true
+      isCurrent: true,
+      isUnlocked: true
     },
     {
       company: "Brain Station 23 PLC",
       companyUrl: "https://brainstation-23.com/",
       role: "Software Engineer",
       period: "Aug 2019 - Jan 2021",
-      duration: "1 year 6 months"
+      duration: "1 year 6 months",
+      isUnlocked: true
     },
     {
       company: "Brain Station 23 PLC",
       companyUrl: "https://brainstation-23.com/",
       role: "Associate Software Engineer",
       period: "Dec 2018 - Aug 2019",
-      duration: "9 months"
+      duration: "9 months",
+      isUnlocked: true
     },
     {
       company: "iQuantile",
       companyUrl: "https://www.iquantile.com/",
       role: "Manager",
       period: "Jan 2018 - Dec 2018",
-      duration: "1 year"
+      duration: "1 year",
+      isUnlocked: true
     },
     {
       company: "iQuantile",
       companyUrl: "https://www.iquantile.com/",
       role: "Game Developer",
       period: "Mar 2017 - Jan 2018",
-      duration: "11 months"
+      duration: "11 months",
+      isUnlocked: true
     }
   ];
 
@@ -65,20 +104,25 @@ export const ExperienceTimeline = () => {
                   <div 
                     className={`
                       relative h-24 border-b-4 border-retro-black 
-                      ${exp.isCurrent ? 'bg-retro-yellow animate-pulse' : 'bg-retro-white hover:bg-retro-blue hover:bg-opacity-20'}
+                      ${exp.isCurrent ? 'bg-retro-yellow animate-pulse' : exp.isUnlocked ? 'bg-retro-white hover:bg-retro-blue hover:bg-opacity-20' : 'bg-retro-gray bg-opacity-50'}
                       transition-all duration-300
                     `}
                   >
                     {/* Current position marker */}
                     {exp.isCurrent && (
-                      <div className="absolute -right-16 top-1/2 transform -translate-y-1/2">
-                        <div className="w-12 h-12 bg-[url('/pixel-character.png')] bg-contain bg-no-repeat animate-bounce" />
-                      </div>
+                      <>
+                        <div className="absolute -right-16 top-1/2 transform -translate-y-1/2">
+                          <div className="w-12 h-12 bg-[url('/pixel-character.png')] bg-contain bg-no-repeat animate-bounce" />
+                        </div>
+                        <div className="absolute -right-24 top-1/2 transform -translate-y-1/2">
+                          <ArrowRight className="w-8 h-8 text-retro-yellow animate-pulse" />
+                        </div>
+                      </>
                     )}
                     
-                    {/* Floor number */}
-                    <div className="absolute -left-8 top-1/2 transform -translate-y-1/2">
-                      <span className="font-pixel text-retro-white text-sm">F{experiences.length - index}</span>
+                    {/* Level number */}
+                    <div className="absolute -left-24 top-1/2 transform -translate-y-1/2">
+                      <span className="font-pixel text-retro-white text-sm">Level-{experiences.length - index}</span>
                     </div>
                   </div>
                 </HoverCardTrigger>
