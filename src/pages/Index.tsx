@@ -2,6 +2,8 @@ import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { SocialLinks } from "@/components/SocialLinks";
 import { Games } from "@/components/Games";
+import { ExperienceTimeline } from "@/components/ExperienceTimeline";
+import { BookShowcase } from "@/components/BookShowcase";
 
 const Index = () => {
   return (
@@ -10,6 +12,8 @@ const Index = () => {
       <About />
       <SocialLinks />
       <Games />
+      <ExperienceTimeline />
+      <BookShowcase />
     </main>
   );
 };
