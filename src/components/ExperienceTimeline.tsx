@@ -93,7 +93,7 @@ export const ExperienceTimeline = () => {
                     y1={`${exp.coordinates.y}%`}
                     x2={`${connectedExp.coordinates.x}%`}
                     y2={`${connectedExp.coordinates.y}%`}
-                    stroke="#fbf5ef"
+                    stroke="#6e6a86"
                     strokeWidth="2"
                     strokeDasharray="4"
                     className="animate-pulse"
@@ -144,22 +144,28 @@ export const ExperienceTimeline = () => {
             </HoverCard>
           ))}
 
-          {/* Grid overlay for retro effect */}
-          <div className="absolute inset-0 grid grid-cols-12 grid-rows-12 pointer-events-none">
+          {/* Grid overlay */}
+          <div className="absolute inset-0 grid grid-cols-12 grid-rows-12">
             {Array.from({ length: 144 }).map((_, i) => (
               <div 
                 key={i} 
-                className="border border-retro-white/10"
+                className="border border-retro-gray/30"
               />
             ))}
           </div>
 
           {/* Additional decorative elements */}
-          <div className="absolute inset-0 border-4 border-retro-white/20"></div>
-          <div className="absolute inset-4 border border-retro-white/5"></div>
+          <div className="absolute inset-0 border-4 border-retro-gray/40"></div>
+          <div className="absolute inset-4 border border-retro-gray/20"></div>
           
           {/* Scanlines effect */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-retro-white/5 to-transparent opacity-20 pointer-events-none"></div>
+          <div 
+            className="absolute inset-0 bg-gradient-to-b from-transparent via-retro-white/5 to-transparent opacity-35 pointer-events-none"
+            style={{
+              backgroundSize: '100% 4px',
+              backgroundImage: 'linear-gradient(0deg, rgba(255,255,255,0.1) 1px, transparent 1px)'
+            }}
+          ></div>
         </RetroContainer>
       </div>
     </section>
