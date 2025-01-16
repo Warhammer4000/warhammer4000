@@ -5,6 +5,7 @@ import { Games } from "@/components/Games";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { BookShowcase } from "@/components/BookShowcase";
 import { Education } from "@/components/Education";
+import { Clients } from "@/components/Clients";
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       <SocialLinks />
       <Games />
       <ExperienceTimeline />
+      <Clients />
       <Education />
       <BookShowcase />
     </main>
