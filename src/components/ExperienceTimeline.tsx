@@ -120,7 +120,7 @@ export const ExperienceTimeline = () => {
                 >
                   {exp.isCurrent && (
                     <div className="absolute -right-8 -top-8">
-                      <div className="w-12 h-12 bg-[url('/pixel-character.png')] bg-contain bg-no-repeat" />
+                      <div className="w-12 h-12 bg-[url('/pixel-character.png')] bg-contain bg-no-repeat animate-bounce" />
                     </div>
                   )}
                 </div>
@@ -153,6 +153,13 @@ export const ExperienceTimeline = () => {
               />
             ))}
           </div>
+
+          {/* Additional decorative elements */}
+          <div className="absolute inset-0 border-4 border-retro-white/20"></div>
+          <div className="absolute inset-4 border border-retro-white/5"></div>
+          
+          {/* Scanlines effect */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-retro-white/5 to-transparent opacity-20 pointer-events-none"></div>
         </RetroContainer>
       </div>
     </section>
